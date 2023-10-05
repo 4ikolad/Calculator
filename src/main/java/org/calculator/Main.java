@@ -1,17 +1,19 @@
-package org.example;
+package org.calculator;
 
-import java.io.IOException;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        String string = scanner.nextLine();
-        System.out.println(calc(string));
+        String input = "";
+        while (!input.equals("q")) {
+            Scanner scanner = new Scanner(System.in);
+            input = scanner.nextLine();
+            System.out.println(calc(input));
+        }
 
     }
 
+    // Конвертирует из строки в число
     static int toInteger(String number) {
         int intNumber;
         String numbers = "1234567890";
@@ -36,6 +38,7 @@ public class Main {
         return intNumber;
     }
 
+    // Сам калькулятор
     public static String calc(String input) throws Exception {
 
         String[] expression = input.split(" ");
@@ -62,6 +65,7 @@ public class Main {
         }
     }
 
+    // проверяет правильность операции, возвращает строку с наименованием типа введенных чисел
     static String validator(String firstNum, String secondNum, String symbol) throws Exception {
         String arabicNumbers = "1234567890";
         String romanNumbers = "I II III IV V VI VII VIII IX X";
